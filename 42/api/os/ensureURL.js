@@ -48,9 +48,14 @@ export async function ensureURL(url, options) {
   if (
     typeof url === "string" &&
     url.startsWith("/") &&
-    globalThis.document?.baseURI?.startsWith("http")
+    globalThis.location?.pathname
   ) {
-    url = new URL(url.slice(1), globalThis.document.baseURI).href
+    // String concatenation, NOT new URL(): new URL() percent-encodes
+    // spaces to %20, which a later encodePath() would double-encode
+    // to %2520 (this broke "Windows 93.theme"). Concatenation leaves
+    // the raw path for encodePath() to encode exactly once.
+    const dir = globalThis.location.pathname.replace(/[^/]*$/, "")
+    url = dir + url.slice(1)
   }
 
   return url

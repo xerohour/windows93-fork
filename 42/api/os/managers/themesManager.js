@@ -206,7 +206,13 @@ ${this.manager.suffix}`
     await this.importModule()
     if (signal.aborted) return false
     if (this.module?.configureTheme) {
-      await this.#importProperties()
+      // A missing or unreadable theme scheme must not block the
+      // whole theme (and desktop): fall back to the theme CSS alone.
+      try {
+        await this.#importProperties()
+      } catch (err) {
+        console.log(err)
+      }
       if (signal.aborted) return false
     }
 
