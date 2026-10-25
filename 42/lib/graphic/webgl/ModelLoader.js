@@ -147,7 +147,12 @@ function Loader() {
 
   this.loadFile = async function (file, manager = getManager()) {
     if (typeof manager === "string") {
-      const base = new URL(manager, location.origin).href
+      const base = new URL(
+        typeof manager === "string" && manager.startsWith("/")
+          ? manager.slice(1)
+          : manager,
+        globalThis.document?.baseURI ?? location.origin,
+      ).href
       manager = getManager()
       manager.setURLModifier((url) => new URL(url, base).href)
     }

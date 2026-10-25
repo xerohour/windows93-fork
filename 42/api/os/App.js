@@ -253,7 +253,7 @@ window.APP_INIT = {
       const script = doc.createElement("script")
       script.type = "module"
       script.textContent = `
-import { on } from "${location.origin}/42/lib/event/on.js"
+import { on } from "${new URL("42/lib/event/on.js", document.baseURI).href}"
 window.parent.sys42?.apps.listenIframeActions("${app.id}", document.body, on)`
       doc.head.append(script)
     })
@@ -382,7 +382,7 @@ export async function launch(manifest, options, AppClass = App) {
               const script = doc.createElement("script")
               script.type = "module"
               script.textContent = `
-import { liveReload } from "${location.origin}/42/lib/dom/liveReload.js"
+import { liveReload } from "${new URL("42/lib/dom/liveReload.js", document.baseURI).href}"
 window.parent.sys42?.apps.addIframeLiveReload("${app.id}", liveReload)`
               doc.head.append(script)
             }
