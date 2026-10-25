@@ -1,6 +1,6 @@
-import { App } from "/42/api/os/App.js"
-import "/42/ui/media/midi.js"
-import { pianoNote } from "/42/ui/media/piano.js"
+import { App } from "../../../../../42/api/os/App.js"
+import "../../../../../42/ui/media/midi.js"
+import { pianoNote } from "../../../../../42/ui/media/piano.js"
 
 const app = new App()
 let audioContext = new AudioContext()

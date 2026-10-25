@@ -1,4 +1,4 @@
-import { AudioProcessorNode } from "/42/lib/audio/AudioProcessorNode.js"
+import { AudioProcessorNode } from "../../../../../42/lib/audio/AudioProcessorNode.js"
 
 export class LooperNode extends AudioProcessorNode {
   static module = new URL("./LooperProcessor.js", import.meta.url).href

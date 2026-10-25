@@ -1,5 +1,5 @@
-import { ChiptuneNode } from "/c/libs/chip-player-js/ChiptuneNode.js"
-import { DEFAULT_SOUNDFONT } from "/c/libs/chip-player-js/soundfonts.js"
+import { ChiptuneNode } from "../../../../../c/libs/chip-player-js/ChiptuneNode.js"
+import { DEFAULT_SOUNDFONT } from "../../../../../c/libs/chip-player-js/soundfonts.js"
 
 export const ENGINES = {
   FLUIDSYNTH: "fluidsynth",

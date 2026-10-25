@@ -1,7 +1,7 @@
 import { OBXD } from "./OBXD.js"
-import "/42/ui/media/piano.js"
-import { App } from "/42/api/os/App.js"
-import "/42/ui/media/midi.js"
+import "../../../../../42/ui/media/piano.js"
+import { App } from "../../../../../42/api/os/App.js"
+import "../../../../../42/ui/media/midi.js"
 
 const audioCtx = new AudioContext({ latencyHint: "interactive" })
 

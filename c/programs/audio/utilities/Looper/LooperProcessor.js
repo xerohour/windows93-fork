@@ -1,4 +1,4 @@
-import { AudioProcessor } from "/42/lib/audio/AudioProcessorNode.js"
+import { AudioProcessor } from "../../../../../42/lib/audio/AudioProcessorNode.js"
 
 const ARM_THRESHOLD = 0.004
 

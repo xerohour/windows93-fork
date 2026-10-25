@@ -1,4 +1,4 @@
-import { mixer } from "/42/lib/audio/mixer.js"
+import { mixer } from "../../../../../42/lib/audio/mixer.js"
 import { LooperNode } from "./LooperNode.js"
 
 const FADE_SECONDS = 0.01

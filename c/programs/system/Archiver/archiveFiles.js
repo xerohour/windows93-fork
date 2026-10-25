@@ -1,8 +1,8 @@
-import { fs } from "/42/api/fs.js"
-import { fileIndex } from "/42/api/fileIndex.js"
-import { incrementFilename } from "/42/api/fs/incrementFilename.js"
-import { getBasename } from "/42/lib/syntax/path/getBasename.js"
-import { joinPath } from "/42/lib/syntax/path/joinPath.js"
+import { fs } from "../../../../42/api/fs.js"
+import { fileIndex } from "../../../../42/api/fileIndex.js"
+import { incrementFilename } from "../../../../42/api/fs/incrementFilename.js"
+import { getBasename } from "../../../../42/lib/syntax/path/getBasename.js"
+import { joinPath } from "../../../../42/lib/syntax/path/joinPath.js"
 
 /** @param {string} name */
 export function getArchiveBasename(name) {

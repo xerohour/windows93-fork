@@ -1,16 +1,16 @@
-import { toast } from "/42/ui/layout/toast.js"
-import { enableMidiControl } from "/42/api/os/midiControl.js"
-import { mixer } from "/42/lib/audio/mixer.js"
+import { toast } from "../../../../../42/ui/layout/toast.js"
+import { enableMidiControl } from "../../../../../42/api/os/midiControl.js"
+import { mixer } from "../../../../../42/lib/audio/mixer.js"
 import {
   GM_INSTRUMENTS,
   GM_DRUM_KITS,
-} from "/c/libs/chip-player-js/players/MIDIPlayer/MIDIConstants.js"
+} from "../../../../../c/libs/chip-player-js/players/MIDIPlayer/MIDIConstants.js"
 import { createRouter, createDefaultConfig, ENGINES } from "./router.js"
-import "/42/ui/media/piano.js"
+import "../../../../../42/ui/media/piano.js"
 import {
   groupedSoundfontOptions,
   resolveSoundfontValue,
-} from "/c/libs/chip-player-js/soundfonts.js"
+} from "../../../../../c/libs/chip-player-js/soundfonts.js"
 
 const DRUM_CHANNEL = 9
 

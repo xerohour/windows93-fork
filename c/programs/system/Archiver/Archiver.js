@@ -1,15 +1,15 @@
-import { fs } from "/42/api/fs.js"
-import { getDirname } from "/42/lib/syntax/path/getDirname.js"
-import { getBasename } from "/42/lib/syntax/path/getBasename.js"
-import { joinPath } from "/42/lib/syntax/path/joinPath.js"
-import { dialog, alert, form } from "/42/ui/layout/dialog.js"
-import { toast } from "/42/ui/layout/toast.js"
-import { incrementFilename } from "/42/api/fs/incrementFilename.js"
-import { getSortableDateTime } from "/42/lib/date/getSortableDateTime.js"
-import { truncate } from "/42/lib/type/string/truncate.js"
-import { fileIndex } from "/42/api/fileIndex.js"
-import { normalizeDirname } from "/42/api/fs/normalizeFilename.js"
-import { trashManager } from "/42/api/os/managers/trashManager.js"
+import { fs } from "../../../../42/api/fs.js"
+import { getDirname } from "../../../../42/lib/syntax/path/getDirname.js"
+import { getBasename } from "../../../../42/lib/syntax/path/getBasename.js"
+import { joinPath } from "../../../../42/lib/syntax/path/joinPath.js"
+import { dialog, alert, form } from "../../../../42/ui/layout/dialog.js"
+import { toast } from "../../../../42/ui/layout/toast.js"
+import { incrementFilename } from "../../../../42/api/fs/incrementFilename.js"
+import { getSortableDateTime } from "../../../../42/lib/date/getSortableDateTime.js"
+import { truncate } from "../../../../42/lib/type/string/truncate.js"
+import { fileIndex } from "../../../../42/api/fileIndex.js"
+import { normalizeDirname } from "../../../../42/api/fs/normalizeFilename.js"
+import { trashManager } from "../../../../42/api/os/managers/trashManager.js"
 import { extractArchive } from "./extractArchive.js"
 import { compressArchive, compressionFormats } from "./compressArchive.js"
 import {
@@ -17,7 +17,7 @@ import {
   readSelection,
   planExtraction,
 } from "./archiveFiles.js"
-import "/42/ui/control/pathpicker.js"
+import "../../../../42/ui/control/pathpicker.js"
 
 async function extractFile(source, parent, remove = false) {
   const path = typeof source === "string" ? source : source.path

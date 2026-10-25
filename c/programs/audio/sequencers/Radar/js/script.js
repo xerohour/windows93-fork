@@ -1,4 +1,4 @@
-import { sfxr, initSfxr, Params } from "/c/libs/jsfxr/1.2/jsfxr.js"
+import { sfxr, initSfxr, Params } from "../../../../../../c/libs/jsfxr/1.2/jsfxr.js"
 
 initSfxr()
 
