@@ -73,13 +73,39 @@ export async function applyCursorPolyfill() {
         // stylesheet that defines them, so resolve them here: absolute
         // site paths ("/42/...") against the document's directory (the
         // Pages project subpath), and stylesheet-relative paths
-        // ("windows9x/cursors/...") against the theme stylesheet.
-        const themeLink = document.querySelector(
-          'link[href*=".theme.css"]',
-        )
-        const themeBase = themeLink
-          ? new URL(themeLink.getAttribute("href"), location.href).href
-          : location.href
+        // ("windows9x/cursors/...") against the theme stylesheet that
+        // defines the cursor variables (found via document.styleSheets,
+        // with the theme <link> as a fallback).
+        let themeBase = location.href
+        try {
+          for (const sheet of document.styleSheets) {
+            try {
+              const rules = sheet.cssRules
+              if (!rules || !sheet.href) continue
+              for (const rule of rules) {
+                if (
+                  rule.style?.getPropertyValue?.("--cursor-progress") ||
+                  rule.style?.getPropertyValue?.("--cursor-wait")
+                ) {
+                  themeBase = sheet.href
+                  break
+                }
+              }
+            } catch {}
+            if (themeBase !== location.href) break
+          }
+        } catch {}
+        if (themeBase === location.href) {
+          const themeLink = document.querySelector(
+            'link[href*=".theme.css"]',
+          )
+          if (themeLink) {
+            themeBase = new URL(
+              themeLink.getAttribute("href"),
+              location.href,
+            ).href
+          }
+        }
         const base = url.startsWith("/") ? location.href : themeBase
         const { pathname } = new URL(
           url.replace(/^\//, ""),
@@ -97,7 +123,12 @@ export async function applyCursorPolyfill() {
   }
 
   if (undones.length > 0) {
-    const rules = await Promise.all(undones)
+    // A single missing cursor file must not fail the whole boot:
+    // ignore individual failures and use the cursors that did load.
+    const settled = await Promise.allSettled(undones)
+    const rules = settled
+      .filter((r) => r.status === "fulfilled")
+      .map((r) => r.value)
     const cssText = rules.join("\n")
     if (!styleEl) {
       styleEl = document.createElement("style")
