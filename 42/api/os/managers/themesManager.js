@@ -93,7 +93,7 @@ class Theme extends Emitter {
 ${this.manager.prefix}
 /* <theme> */
 
-@import url("${this.path}");
+@import url("${this.path.replace(/^\//, "")}");
 ${this.generateProperties()}
 /* </theme> */
 ${this.manager.suffix}`
@@ -214,7 +214,7 @@ ${this.manager.suffix}`
     const styleEl = document.createElement("link")
     styleEl.rel = "stylesheet"
     styleEl.className = `system-theme system-theme--${this.name}`
-    styleEl.href = this.path
+    styleEl.href = this.path.replace(/^\//, "")
     this.styleEl = styleEl
 
     this.manager.endPlaceholder.before(styleEl)

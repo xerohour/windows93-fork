@@ -331,43 +331,43 @@ TODO: check https://winhistory.de/more/win95.htm
   /* MARK: cursors
   ---------------- */
 
-  --cursor-default: url("/42/themes/tribute/windows9x/cursors/default.cur"), default;
-  --cursor-help: url("/42/themes/tribute/windows9x/cursors/help.cur"), help;
-  --cursor-pointer: url("/42/themes/tribute/windows9x/cursors/pointer.cur"), pointer;
-  --cursor-progress: url("/42/themes/tribute/windows9x/cursors/progress.ani"), progress;
-  --cursor-wait: url("/42/themes/tribute/windows9x/cursors/wait.ani"), wait;
-  --cursor-cell: url("/42/themes/tribute/windows9x/cursors/cell.cur"), cell;
-  --cursor-crosshair: url("/42/themes/tribute/windows9x/cursors/crosshair.cur"), crosshair;
-  --cursor-text: url("/42/themes/tribute/windows9x/cursors/text.cur"), text;
-  --cursor-alias: url("/42/themes/tribute/windows9x/cursors/alias.cur"), alias;
-  --cursor-copy: url("/42/themes/tribute/windows9x/cursors/copy.cur"), copy;
-  --cursor-move: url("/42/themes/tribute/windows9x/cursors/move.cur"), move;
-  --cursor-no-drop: url("/42/themes/tribute/windows9x/cursors/no-drop.cur"), no-drop;
-  --cursor-not-allowed: url("/42/themes/tribute/windows9x/cursors/not-allowed.cur"), not-allowed;
-  --cursor-grab: url("/42/themes/tribute/windows9x/cursors/grab.cur"), grab;
-  --cursor-grabbing: url("/42/themes/tribute/windows9x/cursors/grabbing.cur"), grabbing;
-  --cursor-ew-resize: url("/42/themes/tribute/windows9x/cursors/ew-resize.cur"), ew-resize;
-  --cursor-ns-resize: url("/42/themes/tribute/windows9x/cursors/ns-resize.cur"), ns-resize;
-  --cursor-nesw-resize: url("/42/themes/tribute/windows9x/cursors/nesw-resize.cur"), nesw-resize;
-  --cursor-nwse-resize: url("/42/themes/tribute/windows9x/cursors/nwse-resize.cur"), nwse-resize;
+  --cursor-default: url("windows9x/cursors/default.cur"), default;
+  --cursor-help: url("windows9x/cursors/help.cur"), help;
+  --cursor-pointer: url("windows9x/cursors/pointer.cur"), pointer;
+  --cursor-progress: url("windows9x/cursors/progress.ani"), progress;
+  --cursor-wait: url("windows9x/cursors/wait.ani"), wait;
+  --cursor-cell: url("windows9x/cursors/cell.cur"), cell;
+  --cursor-crosshair: url("windows9x/cursors/crosshair.cur"), crosshair;
+  --cursor-text: url("windows9x/cursors/text.cur"), text;
+  --cursor-alias: url("windows9x/cursors/alias.cur"), alias;
+  --cursor-copy: url("windows9x/cursors/copy.cur"), copy;
+  --cursor-move: url("windows9x/cursors/move.cur"), move;
+  --cursor-no-drop: url("windows9x/cursors/no-drop.cur"), no-drop;
+  --cursor-not-allowed: url("windows9x/cursors/not-allowed.cur"), not-allowed;
+  --cursor-grab: url("windows9x/cursors/grab.cur"), grab;
+  --cursor-grabbing: url("windows9x/cursors/grabbing.cur"), grabbing;
+  --cursor-ew-resize: url("windows9x/cursors/ew-resize.cur"), ew-resize;
+  --cursor-ns-resize: url("windows9x/cursors/ns-resize.cur"), ns-resize;
+  --cursor-nesw-resize: url("windows9x/cursors/nesw-resize.cur"), nesw-resize;
+  --cursor-nwse-resize: url("windows9x/cursors/nwse-resize.cur"), nwse-resize;
 
   /* aliases */
 
-  --cursor-context-menu: url("/42/themes/tribute/windows9x/cursors/default.cur"), context-menu;
-  /* --cursor-vertical-text: url("/42/themes/tribute/windows9x/cursors/vertical-text.cur"), vertical-text; */
-  --cursor-all-scroll: url("/42/themes/tribute/windows9x/cursors/move.cur"), all-scroll;
-  --cursor-col-resize: url("/42/themes/tribute/windows9x/cursors/ew-resize.cur"), col-resize;
-  --cursor-row-resize: url("/42/themes/tribute/windows9x/cursors/ns-resize.cur"), row-resize;
-  --cursor-n-resize: url("/42/themes/tribute/windows9x/cursors/ns-resize.cur"), n-resize;
-  --cursor-e-resize: url("/42/themes/tribute/windows9x/cursors/ew-resize.cur"), e-resize;
-  --cursor-s-resize: url("/42/themes/tribute/windows9x/cursors/ns-resize.cur"), s-resize;
-  --cursor-w-resize: url("/42/themes/tribute/windows9x/cursors/ew-resize.cur"), w-resize;
-  --cursor-ne-resize: url("/42/themes/tribute/windows9x/cursors/nesw-resize.cur"), ne-resize;
-  --cursor-nw-resize: url("/42/themes/tribute/windows9x/cursors/nwse-resize.cur"), nw-resize;
-  --cursor-se-resize: url("/42/themes/tribute/windows9x/cursors/nwse-resize.cur"), se-resize;
-  --cursor-sw-resize: url("/42/themes/tribute/windows9x/cursors/nesw-resize.cur"), sw-resize;
-  /* --cursor-zoom-in: url("/42/themes/tribute/windows9x/cursors/zoom-in.cur"), zoom-in; */
-  /* --cursor-zoom-out: url("/42/themes/tribute/windows9x/cursors/zoom-out.cur"), zoom-out; */
+  --cursor-context-menu: url("windows9x/cursors/default.cur"), context-menu;
+  /* --cursor-vertical-text: url("windows9x/cursors/vertical-text.cur"), vertical-text; */
+  --cursor-all-scroll: url("windows9x/cursors/move.cur"), all-scroll;
+  --cursor-col-resize: url("windows9x/cursors/ew-resize.cur"), col-resize;
+  --cursor-row-resize: url("windows9x/cursors/ns-resize.cur"), row-resize;
+  --cursor-n-resize: url("windows9x/cursors/ns-resize.cur"), n-resize;
+  --cursor-e-resize: url("windows9x/cursors/ew-resize.cur"), e-resize;
+  --cursor-s-resize: url("windows9x/cursors/ns-resize.cur"), s-resize;
+  --cursor-w-resize: url("windows9x/cursors/ew-resize.cur"), w-resize;
+  --cursor-ne-resize: url("windows9x/cursors/nesw-resize.cur"), ne-resize;
+  --cursor-nw-resize: url("windows9x/cursors/nwse-resize.cur"), nw-resize;
+  --cursor-se-resize: url("windows9x/cursors/nwse-resize.cur"), se-resize;
+  --cursor-sw-resize: url("windows9x/cursors/nesw-resize.cur"), sw-resize;
+  /* --cursor-zoom-in: url("windows9x/cursors/zoom-in.cur"), zoom-in; */
+  /* --cursor-zoom-out: url("windows9x/cursors/zoom-out.cur"), zoom-out; */
 
   /* MARK: tooltip
   ---------------- */

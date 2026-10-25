@@ -35,13 +35,15 @@ class Client {
   async register(options) {
     if (skipServiceWorker || inAutomated) return
 
+    const pageBase =
+      location.origin + location.pathname.replace(/[^/]*$/, "")
     const moduleURL = new URL(
-      options?.url ?? "/42.sw.js", //
-      location.origin,
+      options?.url ?? "42.sw.js", //
+      pageBase,
     ).href
     const bundleURL = new URL(
-      options?.bundleURL ?? "/42.sw.bundle.js",
-      location.origin,
+      options?.bundleURL ?? "42.sw.bundle.js",
+      pageBase,
     ).href
 
     if (this.registration) {
@@ -57,9 +59,17 @@ class Client {
         updateViaCache: "none",
       })
     } catch {
-      this.registration = await serviceWorker.register(bundleURL, {
-        updateViaCache: "none",
-      })
+      try {
+        this.registration = await serviceWorker.register(bundleURL, {
+          updateViaCache: "none",
+        })
+      } catch {
+        // No service worker available (e.g. on GitHub Pages project
+        // sites where the worker files are not present): continue
+        // without one instead of failing the whole boot.
+        this.registration = undefined
+        return
+      }
     }
 
     if (this.registration) {
