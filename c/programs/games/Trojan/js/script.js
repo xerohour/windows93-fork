@@ -11,14 +11,14 @@
   - Ajout d'un random trigger sur sfxGlitchSound (son plus propre + meilleures perfs)
 */
 
-import "/42/api/os.js";
-import { fileIndex } from "/42/api/fileIndex.js";
-import { getIconFromPath } from "/42/api/os/managers/iconsManager/getIconFromPath.js";
+import "../../../../../42/api/os.js";
+import { fileIndex } from "../../../../../42/api/fileIndex.js";
+import { getIconFromPath } from "../../../../../42/api/os/managers/iconsManager/getIconFromPath.js";
 
-import * as THREE from "/c/libs/threejs/0.181/three.js"
-import { PointerLockControls } from "/c/libs/threejs/0.181/addons/controls/PointerLockControls.js"
+import * as THREE from "../../../../../c/libs/threejs/0.181/three.js"
+import { PointerLockControls } from "../../../../../c/libs/threejs/0.181/addons/controls/PointerLockControls.js"
 
-import { sfxr, Params, SoundEffect } from "/c/libs/jsfxr/1.2/jsfxr.js"
+import { sfxr, Params, SoundEffect } from "../../../../../c/libs/jsfxr/1.2/jsfxr.js"
 
 let gameOver = false;
 let isPaused = false;
