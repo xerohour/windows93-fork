@@ -427,7 +427,7 @@ void (() => {
             attachName = "attachIconMidiLearn"
           } else return
 
-          import("./42/api/os/midiControl.js").then((mc) =>
+          import("./api/os/midiControl.js").then((mc) =>
             mc[attachName](target),
           )
         },
@@ -448,7 +448,7 @@ void (() => {
           if (target.closest("[recordable]")) return
           target.recordableAttached = true
 
-          import("./42/api/gui/trait/recordable.js").then(({ recordable }) => {
+          import("./api/gui/trait/recordable.js").then(({ recordable }) => {
             recordable(target, {
               audioContext: desktopRealm.sys42.mixer.context,
             })
@@ -465,8 +465,8 @@ void (() => {
       const registerModulationTarget = (el) => {
         if (el.closest('[inert], [data-audio-param="true"]')) return
         Promise.all([
-          import("./42/lib/audio/virtualAudioParam.js"),
-          import("./42/lib/audio/bindAudioParam.js"),
+          import("./lib/audio/virtualAudioParam.js"),
+          import("./lib/audio/bindAudioParam.js"),
         ]).then(([{ createVirtualAudioParam }, { bindAudioParam }]) => {
           if (el.closest('[inert], [data-audio-param="true"]')) return
           bindAudioParam(el, createVirtualAudioParam(el), {})
