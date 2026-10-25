@@ -190,7 +190,13 @@ ${this.manager.suffix}`
     if (options) merge(this.config, options)
     if (this.loaded) {
       if (this.module?.configureTheme) {
-        await this.#importProperties()
+        // Same non-fatal rule as in load(): a bad scheme must not
+        // throw up an error dialog and block the desktop.
+        try {
+          await this.#importProperties()
+        } catch (err) {
+          console.log(err)
+        }
         if (this.properties) await this.applyProperties()
       }
     } else {
