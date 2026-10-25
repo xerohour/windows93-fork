@@ -129,7 +129,11 @@ export async function normalizeManifest(manifest, options) {
     ) || slugify(manifest.name)
 
   manifest.manifestPath ??= new URL(document.baseURI).pathname
-  manifest.manifestURL ??= new URL(manifest.manifestPath, document.baseURI).href
+  manifest.manifestURL ??=
+    new URL(
+      manifest.manifestPath.replace(/^\//, ""),
+      document.baseURI,
+    ).href
   manifest.dirPath ??= getDirname(manifest.manifestPath) + "/"
   manifest.dirURL ??= getDirname(manifest.manifestURL) + "/"
 
