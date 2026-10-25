@@ -275,10 +275,10 @@ ${this.manager.suffix}`
 class ThemesManager extends ConfigFile {
   async setup() {
     let [originalCSS, userCSS, styleEl] = await Promise.all([
-      loadText("/style.css?original"),
-      isSWControlled ? loadText("/style.css") : undefined,
+      loadText("style.css?original"),
+      isSWControlled ? loadText("style.css") : undefined,
       /** @type {HTMLLinkElement} */ (
-        /** @type {unknown} */ (untilConnected(`link[href^='/style.css']`))
+        /** @type {unknown} */ (untilConnected(`link[href^='style.css']`))
       ),
     ])
 

@@ -2,21 +2,21 @@
 Start of system generated zone. Edits here will be lost
 ---------------------------------------------------- */
 
-@import url("/42/assets/css/base.css");
-@import url("/42/assets/css/controls.css");
-@import url("/42/assets/css/tabs.css");
-@import url("/42/assets/css/knob.css");
-@import url("/42/assets/css/piano.css");
-@import url("/42/assets/css/volume.css");
-@import url("/42/assets/css/midi.css");
+@import url("./42/assets/css/base.css");
+@import url("./42/assets/css/controls.css");
+@import url("./42/assets/css/tabs.css");
+@import url("./42/assets/css/knob.css");
+@import url("./42/assets/css/piano.css");
+@import url("./42/assets/css/volume.css");
+@import url("./42/assets/css/midi.css");
 
 /* <theme> */
 
-/* @import url("/42/themes/test.theme.css"); */
-/* @import url("/42/themes/cyberpunk.theme.css"); */
-/* @import url("/42/themes/neumorphism.theme.css"); */
-/* @import url("/42/themes/routine.theme.css"); */
-@import url("/42/themes/tribute/windows9x.theme.css");
+/* @import url("./42/themes/test.theme.css"); */
+/* @import url("./42/themes/cyberpunk.theme.css"); */
+/* @import url("./42/themes/neumorphism.theme.css"); */
+/* @import url("./42/themes/routine.theme.css"); */
+@import url("./42/themes/tribute/windows9x.theme.css");
 
 :root:not(.themed) {
   --Sound-SystemStart: "/c/users/windows93/interface/themes/windows9x/schemes/Windows 93/BOOT.ogg";

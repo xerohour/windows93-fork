@@ -49,7 +49,7 @@ void (() => {
     if (options.skipCommon !== true) {
       const commonScript = document.createElement("script")
       commonScript.type = "module"
-      commonScript.src = "/42/api/gui/common.js"
+      commonScript.src = "./42/api/gui/common.js"
       document.head.append(commonScript)
     }
 
@@ -427,7 +427,7 @@ void (() => {
             attachName = "attachIconMidiLearn"
           } else return
 
-          import("/42/api/os/midiControl.js").then((mc) =>
+          import("./42/api/os/midiControl.js").then((mc) =>
             mc[attachName](target),
           )
         },
@@ -448,7 +448,7 @@ void (() => {
           if (target.closest("[recordable]")) return
           target.recordableAttached = true
 
-          import("/42/api/gui/trait/recordable.js").then(({ recordable }) => {
+          import("./42/api/gui/trait/recordable.js").then(({ recordable }) => {
             recordable(target, {
               audioContext: desktopRealm.sys42.mixer.context,
             })
@@ -465,8 +465,8 @@ void (() => {
       const registerModulationTarget = (el) => {
         if (el.closest('[inert], [data-audio-param="true"]')) return
         Promise.all([
-          import("/42/lib/audio/virtualAudioParam.js"),
-          import("/42/lib/audio/bindAudioParam.js"),
+          import("./42/lib/audio/virtualAudioParam.js"),
+          import("./42/lib/audio/bindAudioParam.js"),
         ]).then(([{ createVirtualAudioParam }, { bindAudioParam }]) => {
           if (el.closest('[inert], [data-audio-param="true"]')) return
           bindAudioParam(el, createVirtualAudioParam(el), {})
@@ -500,7 +500,7 @@ void (() => {
     const existingCore = document.head.querySelector("script[src$='core.js']")
     if (!existingCore) {
       console.warn(
-        `No core.js found in ${document.URL}\nConsider adding <script src="/42/core.js"></script> to allow audio mixer to capture audio.`,
+        `No core.js found in ${document.URL}\nConsider adding <script src="./42/core.js"></script> to allow audio mixer to capture audio.`,
       )
       core()
     }

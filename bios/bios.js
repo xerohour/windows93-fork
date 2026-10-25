@@ -46,7 +46,7 @@ bios.handleError = async () => {
     "../42/lib/browser/resetAllData.js?original"
   )
   await resetAllData()
-  location.href = "/"
+  location.href = "./"
 }
 
 bios.traceHeader = () => {
@@ -121,7 +121,7 @@ if (window.NO_DYNAMIC_MODULES !== true) {
 
   if (unregistered) {
     isReloaded = false
-    const path = reset ? "/?reset-data" : "/"
+    const path = reset ? "./?reset-data" : "./"
     window.history.replaceState({}, "", path)
   } else if (reset) {
     isReloaded = false
@@ -130,7 +130,7 @@ if (window.NO_DYNAMIC_MODULES !== true) {
     )
     const [registrations] = await resetAllData()
     for (const [ok, reg] of registrations) {
-      if (ok && reg.active) location.href = "/?reset-data&unregistered"
+      if (ok && reg.active) location.href = "./?reset-data&unregistered"
     }
   }
 
@@ -140,7 +140,7 @@ if (window.NO_DYNAMIC_MODULES !== true) {
   try {
     const [{ ConfigFile }, { serverTimestamps }] = await Promise.all([
       import("../42/api/os/ConfigFile.js"),
-      fetch("/timestamps.json?original")
+      fetch("timestamps.json?original")
         .then((res) => res.json())
         .then((json) => ({ serverTimestamps: json }))
         .catch(() => ({ serverTimestamps: null })),

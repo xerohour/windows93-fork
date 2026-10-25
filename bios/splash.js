@@ -60,7 +60,7 @@ export async function splash(log, logError) {
   // iframeEl.src = "/c/users/windows93/interface/splashs/v2.html"
   // iframeEl.src = "/c/users/windows93/interface/splashs/v3.html"
   // iframeEl.src = "/c/users/windows93/interface/splashs/v3.voxel.48.html"
-  iframeEl.src = "/c/users/windows93/interface/splashs/v3.voxel.html"
+  iframeEl.src = "c/users/windows93/interface/splashs/v3.voxel.html"
   iframeEl.style.cssText = /* style */ `
     position: fixed;
     opacity: 0;

@@ -27,7 +27,7 @@ let AudioApp
 const globalOptions = globalThis.sys42?.options?.apps ?? {}
 globalOptions.manifestGlob ??= "**/*app.manifest.json5"
 
-const APPS_FILE = "/apps.cbor"
+const APPS_FILE = "apps.cbor"
 
 class AppsManager extends Emittable(ConfigFile) {
   /** @type {WatchMap<string, App>} */
