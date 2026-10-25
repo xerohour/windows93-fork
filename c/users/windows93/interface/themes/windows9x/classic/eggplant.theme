@@ -5,7 +5,7 @@
 ; Licensed under the GNU Affero General Public License (GNU AGPL) Version 3; full text located in LICENSE.txt
 
 [Theme]
-DisplayName=Pumpkin
+DisplayName=Eggplant
 SetLogonBackground=0
 
 ; Computer - SHIDI_SERVER
@@ -26,37 +26,37 @@ Full=%SystemRoot%\System32\imageres.dll,-54
 Empty=%SystemRoot%\System32\imageres.dll,-55
 
 [Control Panel\Colors]
-ActiveTitle=215 165 47
-Background=66 0 66
-Hilight=128 0 128
+ActiveTitle=88 128 120
+Background=64 0 64
+Hilight=88 128 120
 HilightText=255 255 255
 TitleText=255 255 255
 Window=255 255 255
 WindowText=0 0 0
-Scrollbar=245 234 207
-InactiveTitle=160 160 164
-Menu=236 213 157
+Scrollbar=144 176 168
+InactiveTitle=144 176 168
+Menu=144 176 168
 WindowFrame=0 0 0
 MenuText=0 0 0
-ActiveBorder=236 213 157
-InactiveBorder=236 213 157
-AppWorkspace=245 234 207
-ButtonFace=236 213 157
-ButtonShadow=215 165 47
-GrayText=215 165 47
+ActiveBorder=144 176 168
+InactiveBorder=144 176 168
+AppWorkspace=128 128 128
+ButtonFace=144 176 168
+ButtonShadow=88 128 120
+GrayText=88 128 120
 ButtonText=0 0 0
-InactiveTitleText=245 234 207
-ButtonHilight=245 234 207
+InactiveTitleText=88 128 120
+ButtonHilight=200 216 216
 ButtonDkShadow=0 0 0
-ButtonLight=236 213 157
+ButtonLight=144 176 168
 InfoText=128 0 128
 InfoWindow=255 255 255
-GradientActiveTitle=224 204 136
-GradientInactiveTitle=208 204 144
+GradientActiveTitle=131 75 131
+GradientInactiveTitle=203 189 210
 ButtonAlternateFace=192 192 192
-HotTrackingColor=215 165 47
-MenuHilight=128 0 128
-MenuBar=236 213 157
+HotTrackingColor=88 128 120
+MenuHilight=88 128 120
+MenuBar=144 176 168
 
 [Control Panel\Cursors]
 Arrow=

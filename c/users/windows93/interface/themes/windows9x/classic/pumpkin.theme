@@ -5,7 +5,7 @@
 ; Licensed under the GNU Affero General Public License (GNU AGPL) Version 3; full text located in LICENSE.txt
 
 [Theme]
-DisplayName=Rose
+DisplayName=Pumpkin
 SetLogonBackground=0
 
 ; Computer - SHIDI_SERVER
@@ -26,37 +26,37 @@ Full=%SystemRoot%\System32\imageres.dll,-54
 Empty=%SystemRoot%\System32\imageres.dll,-55
 
 [Control Panel\Colors]
-ActiveTitle=159 96 112
-Background=128 128 128
-Hilight=159 96 112
+ActiveTitle=215 165 47
+Background=66 0 66
+Hilight=128 0 128
 HilightText=255 255 255
 TitleText=255 255 255
 Window=255 255 255
 WindowText=0 0 0
-Scrollbar=207 175 183
+Scrollbar=245 234 207
 InactiveTitle=160 160 164
-Menu=207 175 183
+Menu=236 213 157
 WindowFrame=0 0 0
 MenuText=0 0 0
-ActiveBorder=207 175 183
-InactiveBorder=207 175 183
-AppWorkspace=159 96 112
-ButtonFace=207 175 183
-ButtonShadow=159 96 112
-GrayText=159 96 112
+ActiveBorder=236 213 157
+InactiveBorder=236 213 157
+AppWorkspace=245 234 207
+ButtonFace=236 213 157
+ButtonShadow=215 165 47
+GrayText=215 165 47
 ButtonText=0 0 0
-InactiveTitleText=125 125 125
-ButtonHilight=231 216 220
+InactiveTitleText=245 234 207
+ButtonHilight=245 234 207
 ButtonDkShadow=0 0 0
-ButtonLight=207 175 183
-InfoText=0 0 0
+ButtonLight=236 213 157
+InfoText=128 0 128
 InfoWindow=255 255 255
-GradientActiveTitle=216 204 208
-GradientInactiveTitle=208 212 208
+GradientActiveTitle=224 204 136
+GradientInactiveTitle=208 204 144
 ButtonAlternateFace=192 192 192
-HotTrackingColor=159 96 112
-MenuHilight=159 96 112
-MenuBar=207 175 183
+HotTrackingColor=215 165 47
+MenuHilight=128 0 128
+MenuBar=236 213 157
 
 [Control Panel\Cursors]
 Arrow=

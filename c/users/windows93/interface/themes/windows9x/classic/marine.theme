@@ -5,7 +5,7 @@
 ; Licensed under the GNU Affero General Public License (GNU AGPL) Version 3; full text located in LICENSE.txt
 
 [Theme]
-DisplayName=Rose
+DisplayName=Marine (high color)
 SetLogonBackground=0
 
 ; Computer - SHIDI_SERVER
@@ -26,37 +26,37 @@ Full=%SystemRoot%\System32\imageres.dll,-54
 Empty=%SystemRoot%\System32\imageres.dll,-55
 
 [Control Panel\Colors]
-ActiveTitle=159 96 112
-Background=128 128 128
-Hilight=159 96 112
+ActiveTitle=0 0 128
+Background=44 78 71
+Hilight=0 0 128
 HilightText=255 255 255
 TitleText=255 255 255
-Window=255 255 255
+Window=200 224 216
 WindowText=0 0 0
-Scrollbar=207 175 183
-InactiveTitle=160 160 164
-Menu=207 175 183
+Scrollbar=200 224 216
+InactiveTitle=72 144 136
+Menu=136 192 184
 WindowFrame=0 0 0
 MenuText=0 0 0
-ActiveBorder=207 175 183
-InactiveBorder=207 175 183
-AppWorkspace=159 96 112
-ButtonFace=207 175 183
-ButtonShadow=159 96 112
-GrayText=159 96 112
+ActiveBorder=136 192 184
+InactiveBorder=136 192 184
+AppWorkspace=75 141 132
+ButtonFace=136 192 184
+ButtonShadow=72 144 136
+GrayText=72 144 136
 ButtonText=0 0 0
-InactiveTitleText=125 125 125
-ButtonHilight=231 216 220
+InactiveTitleText=192 192 192
+ButtonHilight=200 224 216
 ButtonDkShadow=0 0 0
-ButtonLight=207 175 183
+ButtonLight=136 192 184
 InfoText=0 0 0
-InfoWindow=255 255 255
-GradientActiveTitle=216 204 208
-GradientInactiveTitle=208 212 208
+InfoWindow=200 224 216
+GradientActiveTitle=24 180 192
+GradientInactiveTitle=120 204 216
 ButtonAlternateFace=192 192 192
-HotTrackingColor=159 96 112
-MenuHilight=159 96 112
-MenuBar=207 175 183
+HotTrackingColor=0 0 128
+MenuHilight=0 0 128
+MenuBar=136 192 184
 
 [Control Panel\Cursors]
 Arrow=

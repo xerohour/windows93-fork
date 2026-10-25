@@ -5,7 +5,7 @@
 ; Licensed under the GNU Affero General Public License (GNU AGPL) Version 3; full text located in LICENSE.txt
 
 [Theme]
-DisplayName=Wheat
+DisplayName=Windows Standard
 SetLogonBackground=0
 
 ; Computer - SHIDI_SERVER
@@ -26,37 +26,37 @@ Full=%SystemRoot%\System32\imageres.dll,-54
 Empty=%SystemRoot%\System32\imageres.dll,-55
 
 [Control Panel\Colors]
-ActiveTitle=128 128 0
-Background=0 64 29
-Hilight=128 128 0
+ActiveTitle=10 36 106
+Background=58 110 165
+Hilight=10 36 106
 HilightText=255 255 255
 TitleText=255 255 255
 Window=255 255 255
 WindowText=0 0 0
-Scrollbar=238 238 208
-InactiveTitle=188 188 65
-Menu=222 222 160
+Scrollbar=212 208 200
+InactiveTitle=128 128 128
+Menu=212 208 200
 WindowFrame=0 0 0
 MenuText=0 0 0
-ActiveBorder=222 222 160
-InactiveBorder=222 222 160
-AppWorkspace=188 188 65
-ButtonFace=222 222 160
-ButtonShadow=188 188 65
-GrayText=188 188 65
+ActiveBorder=212 208 200
+InactiveBorder=212 208 200
+AppWorkspace=128 128 128
+ButtonFace=212 208 200
+ButtonShadow=128 128 128
+GrayText=128 128 128
 ButtonText=0 0 0
-InactiveTitleText=255 255 255
-ButtonHilight=238 238 208
-ButtonDkShadow=0 0 0
-ButtonLight=222 222 160
+InactiveTitleText=212 208 200
+ButtonHilight=255 255 255
+ButtonDkShadow=64 64 64
+ButtonLight=212 208 200
 InfoText=0 0 0
-InfoWindow=255 255 255
-GradientActiveTitle=200 176 72
-GradientInactiveTitle=184 184 128
-ButtonAlternateFace=192 192 192
-HotTrackingColor=128 128 0
-MenuHilight=128 128 0
-MenuBar=222 222 160
+InfoWindow=255 255 225
+GradientActiveTitle=166 202 240
+GradientInactiveTitle=192 192 192
+ButtonAlternateFace=181 181 181
+HotTrackingColor=0 0 128
+MenuHilight=49 106 197
+MenuBar=236 233 216
 
 [Control Panel\Cursors]
 Arrow=
