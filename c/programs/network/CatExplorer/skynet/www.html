@@ -22,8 +22,8 @@
     <meta name="twitter:creator" content="@jankenpopp" />
     <meta property="og:url" content="WWW.SKYNET.PIZZA" />
 
-    <link rel="stylesheet" href="/style.css" />
-    <script src="/42/core.js"></script>
+    <link rel="stylesheet" href="../../../../../style.css" />
+    <script src="../../../../../42/core.js"></script>
     <!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
@@ -643,7 +643,7 @@
                     tmp = (myType[0] * myType[1] * myType[2] + myType[0] + myType[1] + myType[2]) * index % 589;
                     str = "<div class='clip'>"
                     for (var i = 0; i < myType[2]; i++) {
-                        str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index * myType[1]) + i)) % 589 + ".gif'>";
+                        str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index * myType[1]) + i)) % 589 + ".gif'>";
                     };
                     str = str + "</div>"
                     $(this).replaceWith(str);
@@ -858,7 +858,7 @@
                     tmp = ((myType[0] * myType[1] * myType[2]) * (myType[0] + myType[1] + myType[2])) % 589;
                     str = "<div class='clip'>"
                     for (var i = 0; i < myType[2]; i++) {
-                        str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + tmp + ".gif'>";
+                        str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + tmp + ".gif'>";
                     };
                     str = str + "</div>"
                     $("p:first").replaceWith(str);
@@ -868,7 +868,7 @@
                             tmp = ((myType[0] * myType[1] * myType[2] + myType[0] + myType[1] + myType[2]) * (index + 1)) % 589;
                             str = "<div class='clip'>"
                             for (var i = 0; i < myType[0]; i++) {
-                                str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
+                                str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
                             };
                             str = str + "</div>"
                             $(this).replaceWith(str);
@@ -878,7 +878,7 @@
                         tmp = ((myType[0] * myType[1] * myType[2] + myType[0] + myType[1] + myType[2]) * (index + 1)) % 589;
                         str = "<div class='clip'>"
                         for (var i = 0; i < myType[0]; i++) {
-                            str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
+                            str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
                         };
                         str = str + "</div>"
                         $(this).replaceWith(str);
@@ -887,21 +887,21 @@
                     $("li a.external").each(function (index) {
                         tmp = (myType[0] * myType[1] * myType[2] + myType[0] + myType[1] + myType[2]) * index % 589;
                         str = "<span class='clip'>"
-                        str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
+                        str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
                         str = str + "</<span>"
                         $(this).replaceWith(str);
                     });
                     $(".new").each(function (index) {
                         tmp = (myType[0] * myType[1] - myType[2] + myType[0] + myType[1] + myType[2]) * index % 589;
                         str = "<span class='clip'>"
-                        str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + (tmp + url.length) % 589 + ".gif'>";
+                        str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + (tmp + url.length) % 589 + ".gif'>";
                         str = str + "</<span>"
                         $(this).replaceWith(str);
                     });
                     $(".extiw").each(function (index) {
                         tmp = (myType[0] * myType[1] - myType[1] + myType[2] - myType[0] + myType[2]) * index % 589;
                         str = "<span class='clip'>"
-                        str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
+                        str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + ((tmp * (index + 1) * myType[1]) * (i + 1)) % 589 + ".gif'>";
                         str = str + "</<span>"
                         $(this).replaceWith(str);
                     });
@@ -910,7 +910,7 @@
                             //tmp = ""+myType[0]%2+""+myType[1]%5+""+myType[2]%5;
                             t = parseInt(myType[0] + "" + myType[1] + "" + myType[2]) % 589;
                             str = "<div class='clip'>"
-                            str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + (index + t) % 589 + ".gif'>";
+                            str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + (index + t) % 589 + ".gif'>";
                             str = str + "</div>"
                             $(this).after(str);
                         });
@@ -919,7 +919,7 @@
                         $("img.thumbimage").each(function (index) {
                             str = "<div class='clip'>"
                             for (var i = 0; i < myType[1]; i++) {
-                                str = str + "<img src='/c/users/windows93/pictures/gif/skynet/derp" + ((index * myType[0] + myType[1] + myType[2]) + i) % 589 + ".gif'>";
+                                str = str + "<img src='../../../../../c/users/windows93/pictures/gif/skynet/derp" + ((index * myType[0] + myType[1] + myType[2]) + i) % 589 + ".gif'>";
                             };
                             str = str + "</div>"
                             $(this).after(str);
