@@ -1,76 +1,54 @@
-<!doctype html>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Wipeout</title>
+//based on http://paulbourke.net/miscellaneous/interpolation/
+//tension: 1 high, 0 normal, -1 low
+//bias: 0 is even, positive is towards first segment, negative towards the other
 
-<style>
-  body {
-    margin: 0px;
-    overflow: hidden;
-  }
-</style>
+THREE.Curve.Utils.hermiteInterpolate = function (p0, p1, p2, p3, t, tension, bias) {
+	var m0 = (p1 - p0) * (1 + bias) * (1 - tension) / 2 
+	       + (p2 - p1) * (1 - bias) * (1 - tension) / 2;
+	
+	var m1 = (p2 - p1) * (1 + bias) * (1 - tension) / 2 
+	       + (p3 - p2) * (1 - bias) * (1 - tension) / 2;
 
-<div id="container"></div>
+	var t2 = t * t;
+	var t3 = t2 * t;
 
-<script src="three.js"></script>
-<script src="orbit-controls.js"></script>
-<script src="js-struct.js"></script>
-<script src="HermiteCurve3.js"></script>
-<script src="wipeout.js"></script>
+	var h0 = 2 * t3 - 3 * t2 + 1;
+	var h1 = t3 - 2 * t2 + t;
+	var h2 = t3 - t2;
+	var h3 = -2 * t3 + 3 * t2;
 
-<script type="module">
-  const viewer = new Wipeout("container", window.innerWidth, window.innerHeight)
+	return h0 * p1 + h1 * m0 + h2 * m1 + h3 * p2;
+};
 
-  let timerId
+//based on SplineCurve3.js
+//
 
-  function loadTrack() {
-    clearTimeout(timerId)
-    const tracks =
-      Wipeout.Tracks[Math.random() > 0.5 ? "Wipeout" : "Wipeout2097"]
-    const track = tracks[Math.floor(Math.random() * tracks.length)]
-    viewer.clear()
-    viewer.loadTrack(track.path, track.hasTEXFile)
-    cancelAnimationFrame(viewer.rafId)
-    viewer.animate()
-
-    // const loopTime = viewer.cameraSpline.points.length * 100
-    // console.log(loopTime)
-
-    timerId = setTimeout(loadTrack, Math.random() * 6e4 + 4e4)
-  }
-
-  loadTrack()
-
-  document.body.addEventListener("click", () => loadTrack())
-  addEventListener(
-    "wheel",
-    (e) => {
-      // const time = Date.now()
-
-      // const elapsedTime = time - viewer.startTime
-      // const elapsedTicks = (elapsedTime / 1000) * 60
-
-      cancelAnimationFrame(viewer.rafId)
-      viewer.updateSplineCamera()
-      viewer.ticks += e.deltaY > 0 ? -1 : 1
-      if (viewer.ticks < 0) viewer.ticks = 0
-      viewer.updateSplineCamera()
-      // viewer.updateSplineCamera()
-
-      // while (viewer.ticks < elapsedTicks) {
-      //   viewer.ticks++
-      // }
-
-      viewer.rotateSpritesToCamera(viewer.splineCamera)
-      viewer.renderer.render(viewer.scene, viewer.splineCamera)
-
-      // const elapsedTime = time - this.startTime
-      // var elapsedTicks = elapsedTime / 1000 * 60;
-      // console.log(elapsedTicks)
-      // this.startTime -= elapsedTime
-
-      viewer.animate()
-    },
-    { passive: false, capture: true },
-  )
-</script>
+THREE.HermiteCurve3 = THREE.Curve.create(
+	function ( points, tension, bias ) { //custom curve constructor
+		this.points = ( points == undefined ) ? [] : points;
+		this.tension = ( tension == undefined ) ? 0.0 : tension;
+		this.bias = ( bias == undefined ) ? 0.0 : bias;
+	},
+	
+	function ( t ) { //getPoint: t is between 0-1
+	
+		var points = this.points;
+		var point = ( points.length - 1 ) * t;
+		
+		var intPoint = Math.floor( point );
+		var weight = point - intPoint;
+		
+		var point0 = points[ intPoint == 0 ? intPoint : intPoint - 1 ];
+		var point1 = points[ intPoint ];
+		var point2 = points[ intPoint > points.length - 2 ? points.length - 1 : intPoint + 1 ];
+		var point3 = points[ intPoint > points.length - 3 ? points.length - 1 : intPoint + 2 ];
+		
+		var vector = new THREE.Vector3();
+		
+		vector.x = THREE.Curve.Utils.hermiteInterpolate( point0.x, point1.x, point2.x, point3.x, weight, this.tension, this.bias );
+		vector.y = THREE.Curve.Utils.hermiteInterpolate( point0.y, point1.y, point2.y, point3.y, weight, this.tension, this.bias );
+		vector.z = THREE.Curve.Utils.hermiteInterpolate( point0.z, point1.z, point2.z, point3.z, weight, this.tension, this.bias );
+		
+		return vector;
+	}
+);
