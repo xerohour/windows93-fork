@@ -34,6 +34,22 @@ class AppsManager extends Emittable(ConfigFile) {
   launched = new WatchMap()
 
   async setup() {
+    // Heal app manifests loaded from saved user config (IndexedDB):
+    // those saved before the Pages-subpath fix have manifestURL/dirURL
+    // pointing at the domain root, and load() never re-normalizes them,
+    // so Mixer and document apps kept launching from the wrong origin
+    // even after the code fix went live. Recompute from manifestPath,
+    // which is a virtual filesystem path and was never wrong.
+    for (const manifest of Object.values(this.value ?? {})) {
+      if (manifest?.manifestPath) {
+        manifest.manifestURL = new URL(
+          manifest.manifestPath.replace(/^\//, ""),
+          document.baseURI,
+        ).href
+        manifest.dirURL = manifest.manifestURL.replace(/[^/]*$/, "")
+      }
+    }
+
     fileIndex.watch(globalOptions.manifestGlob, async (path, mode) => {
       // console.log(1, mode, path)
       if (mode === "set") await this.add(path, { update: true })

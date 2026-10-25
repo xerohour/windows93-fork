@@ -129,13 +129,16 @@ export async function normalizeManifest(manifest, options) {
     ) || slugify(manifest.name)
 
   manifest.manifestPath ??= new URL(document.baseURI).pathname
-  manifest.manifestURL ??=
+  // Always recompute, not ??=: manifests saved to IndexedDB before the
+  // Pages-subpath fix carry domain-root URLs, and re-normalizing must
+  // overwrite them instead of keeping the stale value.
+  manifest.manifestURL =
     new URL(
       manifest.manifestPath.replace(/^\//, ""),
       document.baseURI,
     ).href
   manifest.dirPath ??= getDirname(manifest.manifestPath) + "/"
-  manifest.dirURL ??= getDirname(manifest.manifestURL) + "/"
+  manifest.dirURL = getDirname(manifest.manifestURL) + "/"
 
   manifest.icons = getIcons(manifest)
 
