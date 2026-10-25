@@ -1,5 +1,5 @@
-import * as THREE from "/c/libs/threejs/0.181/three.js"
-import { FBXLoader } from '/c/libs/threejs/0.181/addons/loaders/FBXLoader.js';
+import * as THREE from "../../../../../c/libs/threejs/0.181/three.js"
+import { FBXLoader } from '../../../../../c/libs/threejs/0.181/addons/loaders/FBXLoader.js';
 import { VERTECS } from "./../assets/vertecs.js";
 
 const video = document.getElementById("video");

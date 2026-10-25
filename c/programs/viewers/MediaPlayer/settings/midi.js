@@ -8,7 +8,7 @@ import {
   SOUNDFONTS,
   groupedSoundfontOptions,
   resolveSoundfontValue,
-} from "/c/libs/chip-player-js/soundfonts.js"
+} from "../../../../../c/libs/chip-player-js/soundfonts.js"
 
 // Mirrors MIDI_ENGINE_* in players/MIDIPlayer.js.
 const MIDI_ENGINE_LIBFLUIDLITE = 0

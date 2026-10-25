@@ -1,5 +1,5 @@
 /* eslint-disable complexity */
-import "/c/programs/misc/FX/fx.js"
+import "../../../../c/programs/misc/FX/fx.js"
 import {
   alert,
   DialogComponent,
