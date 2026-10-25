@@ -1,9 +1,9 @@
-@import url("/42/assets/css/base.css");
-@import url("/42/assets/css/controls.css");
-/* @import url("/42/assets/css/tabs.css"); */
-/* @import url("/42/assets/css/knob.css"); */
-/* @import url("/42/assets/css/volume.css"); */
-@import url("/42/themes/tribute/windows9x.theme.css");
+@import url("../../../../42/assets/css/base.css");
+@import url("../../../../42/assets/css/controls.css");
+/* @import url("../../../../42/assets/css/tabs.css"); */
+/* @import url("../../../../42/assets/css/knob.css"); */
+/* @import url("../../../../42/assets/css/volume.css"); */
+@import url("../../../../42/themes/tribute/windows9x.theme.css");
 
 :root:not(.themed) {
   /* --button-color: #f9c; */
