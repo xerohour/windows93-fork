@@ -235,7 +235,19 @@ document.addEventListener(
       !href.startsWith("#")
     ) {
       e.preventDefault()
-      os.exec(`"${decodeURI(link.pathname)}"`)
+      // On GitHub Pages the page lives under /windows93-fork/, so
+      // link.pathname includes that prefix, but the OS virtual
+      // filesystem paths do not. Strip the page base directory first,
+      // otherwise parseExec sees "/windows93-fork/42/..." and throws
+      // "Invalid command" instead of opening the file.
+      let execPath = link.pathname
+      const pageDir = location.pathname.endsWith("/")
+        ? location.pathname
+        : location.pathname.replace(/[^/]*$/, "")
+      if (pageDir !== "/" && execPath.startsWith(pageDir)) {
+        execPath = "/" + execPath.slice(pageDir.length)
+      }
+      os.exec(`"${decodeURI(execPath)}"`)
     }
   },
   { capture: true },
