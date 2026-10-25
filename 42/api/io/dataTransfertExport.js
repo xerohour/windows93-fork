@@ -30,7 +30,7 @@ export async function dataTransfertExport(e, options) {
 
   if (options?.paths) {
     const { paths } = options
-    const urls = paths.map((path) => new URL(path, location.origin).href)
+    const urls = paths.map((path) => new URL(path.replace(/^\//, ""), document.baseURI).href)
     dataTransfer.setData("text/x-moz-url", urls.join("\n"))
     dataTransfer.setData("text/uri-list", urls.join("\r\n"))
 

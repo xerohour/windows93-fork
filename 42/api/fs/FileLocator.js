@@ -192,7 +192,13 @@ export class FileLocator extends Emittable(BaseLocator) {
 
     if (inode === 0) {
       if (options?.delete) this.delete(from, options)
-      this.set(to, location.origin + from)
+      const baseURI = globalThis.document?.baseURI
+      this.set(
+        to,
+        baseURI
+          ? new URL(from.replace(/^\//, ""), baseURI).href
+          : location.origin + from,
+      )
       return
     }
     if (typeof inode === "string") {

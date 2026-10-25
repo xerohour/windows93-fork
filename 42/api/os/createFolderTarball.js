@@ -68,7 +68,7 @@ export async function createFolderTarball(folderPath, options = {}) {
 
     if (isNotDownloadable(key, inode)) {
       if (includeURLFiles) {
-        const url = new URL(originalFilePathname, location.origin).href
+        const url = new URL(originalFilePathname.replace(/^\//, ""), document.baseURI).href
         const content = `[InternetShortcut]\nURL=${url}\n`
         promises.push(
           pack
