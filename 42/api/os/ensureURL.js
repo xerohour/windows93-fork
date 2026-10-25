@@ -39,5 +39,19 @@ export async function ensureURL(url, options) {
     }
   }
 
+  // Preemptive GitHub Pages fix: any web URL that is still an absolute
+  // site path ("/42/...", "/c/...", or a filename returned by the FS
+  // for an inode-0 web file) would resolve to the domain root. Rewrite
+  // it against the document's own directory, which is the Pages project
+  // subpath ("/windows93-fork/") on Pages and "/" on the original site.
+  // Blob URLs and full http(s) URLs are left alone.
+  if (
+    typeof url === "string" &&
+    url.startsWith("/") &&
+    globalThis.document?.baseURI?.startsWith("http")
+  ) {
+    url = new URL(url.slice(1), globalThis.document.baseURI).href
+  }
+
   return url
 }

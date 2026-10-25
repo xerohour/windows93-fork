@@ -70,41 +70,32 @@ export async function applyCursorPolyfill() {
       const [url] = scrapeCSSUrls(value)
       if (url?.endsWith(".ani")) {
         // CSS custom-property values are not resolved against the
-        // stylesheet that defines them, so resolve them here: absolute
-        // site paths ("/42/...") against the document's directory (the
-        // Pages project subpath), and stylesheet-relative paths
-        // ("windows9x/cursors/...") against the theme stylesheet that
-        // defines the cursor variables (found via document.styleSheets,
-        // with the theme <link> as a fallback).
-        let themeBase = location.href
+        // stylesheet that defines them, so resolve relative cursor
+        // paths against the theme stylesheet itself. Find it by its
+        // loaded stylesheet URL (absolute, reliable) or by its <link>
+        // href property (also absolute), never by the raw attribute.
+        let themeBase = null
         try {
           for (const sheet of document.styleSheets) {
-            try {
-              const rules = sheet.cssRules
-              if (!rules || !sheet.href) continue
-              for (const rule of rules) {
-                if (
-                  rule.style?.getPropertyValue?.("--cursor-progress") ||
-                  rule.style?.getPropertyValue?.("--cursor-wait")
-                ) {
-                  themeBase = sheet.href
-                  break
-                }
-              }
-            } catch {}
-            if (themeBase !== location.href) break
+            if (sheet.href && sheet.href.includes(".theme.css")) {
+              themeBase = sheet.href
+              break
+            }
           }
         } catch {}
-        if (themeBase === location.href) {
+        if (!themeBase) {
           const themeLink = document.querySelector(
             'link[href*=".theme.css"]',
           )
-          if (themeLink) {
-            themeBase = new URL(
-              themeLink.getAttribute("href"),
-              location.href,
-            ).href
-          }
+          if (themeLink?.href) themeBase = themeLink.href
+        }
+        if (!themeBase) {
+          // Default theme fallback; a wrong guess here is harmless
+          // because missing cursors are ignored below.
+          themeBase = new URL(
+            "42/themes/tribute/windows9x.theme.css",
+            location.href,
+          ).href
         }
         const base = url.startsWith("/") ? location.href : themeBase
         const { pathname } = new URL(

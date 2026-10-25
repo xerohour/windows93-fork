@@ -55,12 +55,22 @@ export async function splash(log, logError) {
 
   await sleep(1000 + 2000 * Math.random())
 
+  // If the splash file is not actually served (e.g. not yet uploaded),
+  // do not show a 404 frame over the whole screen: skip the splash.
+  const splashSrc = "c/users/windows93/interface/splashs/v3.voxel.html"
+  try {
+    const splashRes = await fetch(splashSrc, { method: "HEAD" })
+    if (!splashRes.ok) return null
+  } catch {
+    return null
+  }
+
   const iframeEl = document.createElement("iframe")
   iframeEl.id = "splash-screen"
   // iframeEl.src = "/c/users/windows93/interface/splashs/v2.html"
   // iframeEl.src = "/c/users/windows93/interface/splashs/v3.html"
   // iframeEl.src = "/c/users/windows93/interface/splashs/v3.voxel.48.html"
-  iframeEl.src = "c/users/windows93/interface/splashs/v3.voxel.html"
+  iframeEl.src = splashSrc
   iframeEl.style.cssText = /* style */ `
     position: fixed;
     opacity: 0;
