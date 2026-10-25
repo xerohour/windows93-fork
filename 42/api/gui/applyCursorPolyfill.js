@@ -69,7 +69,22 @@ export async function applyCursorPolyfill() {
     if (value.includes("url(")) {
       const [url] = scrapeCSSUrls(value)
       if (url?.endsWith(".ani")) {
-        const { pathname } = new URL(url, location.href)
+        // CSS custom-property values are not resolved against the
+        // stylesheet that defines them, so resolve them here: absolute
+        // site paths ("/42/...") against the document's directory (the
+        // Pages project subpath), and stylesheet-relative paths
+        // ("windows9x/cursors/...") against the theme stylesheet.
+        const themeLink = document.querySelector(
+          'link[href*=".theme.css"]',
+        )
+        const themeBase = themeLink
+          ? new URL(themeLink.getAttribute("href"), location.href).href
+          : location.href
+        const base = url.startsWith("/") ? location.href : themeBase
+        const { pathname } = new URL(
+          url.replace(/^\//, ""),
+          base,
+        )
         // console.log(pathname)
 
         undones.push(
