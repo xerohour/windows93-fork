@@ -118,7 +118,7 @@ Hand=
 SizeAll=%ThemeDir%Akira98\Akira Move.ani
 
 [Control Panel\Desktop]
-Wallpaper=%ThemeDir%Akira98\AkiraD2.bmp
+Wallpaper=%ThemeDir%Akira98\AkiraD1.bmp
 Pattern=(None)
 TileWallpaper=0
 WallpaperStyle=2

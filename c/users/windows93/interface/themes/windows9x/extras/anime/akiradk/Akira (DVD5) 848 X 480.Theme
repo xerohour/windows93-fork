@@ -70,33 +70,33 @@ FileGroupMovie=
 FileGroupCompression=
 
 [Control Panel\Colors]
-ActiveTitle=128 0 0
+ActiveTitle=80 100 128
 Background=0 0 0
-Hilight=200 168 72
-HilightText=0 0 0
-TitleText=255 255 255
+Hilight=0 0 139
+HilightText=255 255 224
+TitleText=0 0 0
 Window=255 255 255
 WindowText=0 0 0
-Scrollbar=240 232 208
-InactiveTitle=139 0 0
-Menu=224 204 152
+Scrollbar=192 204 216
+InactiveTitle=0 0 139
+Menu=128 152 176
 WindowFrame=0 0 0
 MenuText=0 0 0
-ActiveBorder=224 204 152
-InactiveBorder=224 204 152
-AppWorkspace=192 155 58
-ButtonFace=224 204 152
-ButtonShadow=192 156 56
-GrayText=192 156 56
+ActiveBorder=125 158 192
+InactiveBorder=128 152 176
+AppWorkspace=78 101 124
+ButtonFace=128 152 176
+ButtonShadow=91 115 139
+GrayText=91 115 139
 ButtonText=0 0 0
 InactiveTitleText=0 0 0
-ButtonHilight=240 232 208
-ButtonDkShadow=0 0 0
-ButtonLight=224 204 152
+ButtonHilight=200 224 248
+ButtonDkShadow=55 79 103
+ButtonLight=164 188 212
 InfoText=0 0 0
-InfoWindow=255 255 255
+InfoWindow=125 158 192
 ButtonAlternateFace=181 181 181
-GradientActiveTitle=255 104 32
+GradientActiveTitle=0 0 139
 GradientInactiveTitle=0 0 0
 HotTrackingColor=0 0 255
 
@@ -118,7 +118,7 @@ Hand=
 SizeAll=%ThemeDir%Akira98\Akira Move.ani
 
 [Control Panel\Desktop]
-Wallpaper=%ThemeDir%Akira98\AKIRAD8.BMP
+Wallpaper=%ThemeDir%Akira98\AkiraD5.bmp
 Pattern=(None)
 TileWallpaper=0
 WallpaperStyle=2
@@ -189,7 +189,7 @@ DefaultValue=
 
 [Metrics]
 IconMetrics=76 0 0 0 75 0 0 0 75 0 0 0 0 0 0 0 248 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-NonclientMetrics=84 1 0 0 1 0 0 0 13 0 0 0 13 0 0 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 0 0 134 125 0 0 110 125 28 197 0 0 0 0 1 0 3 129 15 0 0 0 15 0 0 0 247 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 0 0 134 125 0 0 110 125 28 197 0 0 0 0 1 0 3 129 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 0 0 134 125 0 0 110 125 28 197 0 0 0 0 1 0 3 129 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 0 0 134 125 0 0 110 125 28 197 0 0 0 0 1 0 3 129 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 0 0 134 125 0 0 110 125 28 197 0 0 0 0 1 0 3 129
+NonclientMetrics=84 1 0 0 1 0 0 0 13 0 0 0 13 0 0 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 224 40 0 0 72 126 0 0 48 126 99 0 0 0 0 0 1 0 15 0 0 0 15 0 0 0 247 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 224 40 0 0 72 126 0 0 48 126 99 0 0 0 0 0 1 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 224 40 0 0 72 126 0 0 48 126 99 0 0 0 0 0 1 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 224 40 0 0 72 126 0 0 48 126 99 0 0 0 0 0 1 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 77 83 32 83 97 110 115 32 83 101 114 105 102 0 224 40 0 0 72 126 0 0 48 126 99 0 0 0 0 0 1 0
 
 [Logos]
 Startup=
