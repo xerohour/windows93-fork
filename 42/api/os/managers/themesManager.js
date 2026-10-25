@@ -81,7 +81,9 @@ class Theme extends Emitter {
   async importModule() {
     if (this.module || !fileIndex.has(this.modulePath)) return
     try {
-      this.module = await import(this.modulePath)
+      this.module = await import(
+        new URL(this.modulePath.replace(/^\//, ""), document.baseURI).href,
+      )
       this.hasModule = true
     } catch (cause) {
       throw new Error(`Theme module error: ${this.modulePath}`, { cause })
