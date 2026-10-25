@@ -1,40 +1,28 @@
-Introduction
-~~~~~~~~~~~~
-Thank you for downloading my theme, I hope you enjoy using it. All materials in the theme were gathered from the web or was created by me. 
-This theme is dedicated to the legendary Martial Artist and Actor Sho Kosugi, who introduced and defined the image of the Ninja for movie fans all over the world. When Ninja films in the 80`s were the craze and when Sho Kosugi was known as the "Master Ninja".
+       Theme: Ayrton Senna - Formula One Driver
+     Creator: Lyndon J Allen
+      E-Mail: lyndon@timeslice.demon.co.uk
+    Web Site: http://www.timeslice.demon.co.uk
+       Price: FREE!!!
+Other Themes: None yet, but working on a UFO (TV show), Damon Hill,
+              The Lost Boyz (UK Rock Band) and I'm open to ideas.
+-------------------------------------------------------------------
 
+Hello.  Thank you for trying out this theme.
 
-Requirements
-~~~~~~~~~~~~
-Windows 98®
-Microsoft Plus!®
-MPEG Layer-3 Sound Support
+Just unzip the Senna Theme.ZIP file (don't forget to use the
+directory names) and enjoy!  You must use a zip program that
+supports long filenames (i.e. WinZip).
 
+The screen saver will need to be installed separately, there is a
+rainss.zip, extract it somewhere out of the way and run the
+setup.exe. 
 
+Its not a brilliant screen saver, but thought that rain would
+appropriate, as these were the driving conditions in with Senna
+excelled.
 
-Sound Information
-~~~~~~~~~~~~~~~~~
-Sound drivers for MPEG Layer-3 MUST be installed. If you can´t hear the sound files, you may need to install Microsoft Netshow Version 2.0, available at: http://msdownload.microsoft.com/msdownload/netshow/2.0/x86/en/nsplay.exe or if you have Win 98 you can simply install the "Audio compression" in the Control Panel/ Add/Remove Programs/ Multimedia, and then click details. Select Audio Compression and Microsoft NetShow Player 2.0.
+This is my first attempt at a Theme, and I would like to improve on
+it, so if you have a better screen saver, sound effects, piccies etc
+mail them to me and I will try to use them.
 
-
-Install
-~~~~~~~
-1. Unzip theme to your desired destination.
-2. Copy the font file to your windows font directory.
-3. Use Microsoft Plus! or your choice of third party theme managers to apply your theme settings.
-
-Uninstall
-~~~~~~~~~
-Delete the theme and zip file.
-
-
-
-Created By
-~~~~~~~~~~
-Cabal 
-
-
-If you have any questions regarding this theme or just like this theme, you can email me at cnguyen13@hotmail.com
-
-My other themes can be downloaded at http://cabal.hasagreatsite.com
-
+ 
