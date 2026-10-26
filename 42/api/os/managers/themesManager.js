@@ -82,9 +82,21 @@ class Theme extends Emitter {
   async importModule() {
     if (this.module || !fileIndex.has(this.modulePath)) return
     try {
-      this.module = await import(
-        new URL(this.modulePath.replace(/^\//, ""), document.baseURI).href,
-      )
+      // 2026-10-26, PowerNOOB theme module error on GitHub Pages,
+      // iframe-only: building the import URL relative to
+      // document.baseURI resolves it against the iframe app's folder
+      // (e.g. /c/programs/editors/PowerNOOB/42/themes/...), which does
+      // not exist. In non-desktop realms, resolve the site-root path
+      // through ensureURL instead, which rewrites it to the Pages
+      // subpath. The desktop realm keeps the original logic untouched.
+      if (inDesktopRealm) {
+        this.module = await import(
+          new URL(this.modulePath.replace(/^\//, ""), document.baseURI).href,
+        )
+      } else {
+        const { ensureURL } = await import("../ensureURL.js")
+        this.module = await import(await ensureURL(this.modulePath))
+      }
       this.hasModule = true
     } catch (cause) {
       throw new Error(`Theme module error: ${this.modulePath}`, { cause })
