@@ -119,7 +119,24 @@ export async function findIconPath(themePath, val, size) {
     }
   }
 
-  const dirNode = fileIndex.get(themePath)
+  // 2026-10-26, broken folder icons on GitHub Pages: a theme path saved
+  // from an earlier Pages boot (or built from import.meta.url) may carry
+  // the deployment subpath, e.g. "/windows93-fork/42/assets/icons/",
+  // while fileIndex keys are virtual "/42/...". If the exact lookup
+  // fails, retry with the first path segment stripped, but only use it
+  // when that lookup actually finds a directory, so unrelated themes
+  // (e.g. "/c/users/...") are unaffected.
+  let dirNode = fileIndex.get(themePath)
+  if (!dirNode) {
+    const stripped = themePath.replace(/^\/[^/]+/, "")
+    if (stripped !== themePath) {
+      const strippedNode = fileIndex.get(stripped)
+      if (strippedNode) {
+        themePath = stripped
+        dirNode = strippedNode
+      }
+    }
+  }
   if (!dirNode) return
 
   if (size && size in dirNode) {

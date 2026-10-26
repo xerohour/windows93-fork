@@ -4,11 +4,16 @@ import { normalizeDirname } from "../../fs/normalizeFilename.js"
 import { findIconPath } from "./iconsManager/findIconPath.js"
 import { getIconFromPath } from "./iconsManager/getIconFromPath.js"
 
+// 2026-10-26, broken folder icons on GitHub Pages: the icon theme path
+// must be a *virtual* file-system path, because findIconPath looks it up
+// in fileIndex, whose keys are "/42/..." regardless of deployment.
+// new URL("../../../assets/icons", import.meta.url).pathname used to be
+// that path on the original site, but under a Pages subpath it becomes
+// "/windows93-fork/42/assets/icons/", which fileIndex does not contain,
+// so every theme lookup (including places/folder) returned undefined.
+// ensureURL() later converts the virtual path to the correct web URL.
 const DEFAULTS = {
-  icons: [
-    new URL("../../../assets/icons", import.meta.url).pathname,
-    "~/config/assets/icons",
-  ],
+  icons: ["/42/assets/icons", "~/config/assets/icons"],
 }
 
 class IconsManager extends ConfigFile {
