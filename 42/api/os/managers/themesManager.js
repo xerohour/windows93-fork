@@ -296,14 +296,18 @@ class ThemesManager extends ConfigFile {
     // exist) instead of the site root. Root-absolute paths go through
     // ensureURL via loadText, which rewrites them to the Pages subpath
     // on Pages and leaves them alone on the original site. The theme
-    // link selector likewise must match by suffix, since iframe apps
-    // link the stylesheet relatively (e.g. "../../../../style.css"),
-    // which never starts with "style.css".
+    // link selector likewise must match by containment, not by prefix
+    // or suffix: the desktop's stylesheet link carries a cache-busting
+    // "?v=" suffix, and iframe apps link it relatively
+    // (e.g. "../../../../style.css"), so neither "starts with" nor
+    // "ends with" style.css matches in both realms. Desktop boot waits
+    // on themesManager.ready, so a selector that never matches hangs
+    // the boot screen forever.
     let [originalCSS, userCSS, styleEl] = await Promise.all([
       loadText("/style.css?original"),
       isSWControlled ? loadText("/style.css") : undefined,
       /** @type {HTMLLinkElement} */ (
-        /** @type {unknown} */ (untilConnected(`link[href$='style.css']`))
+        /** @type {unknown} */ (untilConnected(`link[href*='style.css']`))
       ),
     ])
 
