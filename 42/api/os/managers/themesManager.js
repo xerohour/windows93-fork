@@ -288,11 +288,22 @@ ${this.manager.suffix}`
 
 class ThemesManager extends ConfigFile {
   async setup() {
+    // 2026-10-26, PowerNOOB style.css 404 on GitHub Pages: these must
+    // be site-root paths, NOT relative ones. ThemesManager runs in
+    // every realm that imports os.js, including iframe apps, where a
+    // relative "style.css" resolves against the app's own folder
+    // (e.g. /c/programs/editors/PowerNOOB/style.css, which does not
+    // exist) instead of the site root. Root-absolute paths go through
+    // ensureURL via loadText, which rewrites them to the Pages subpath
+    // on Pages and leaves them alone on the original site. The theme
+    // link selector likewise must match by suffix, since iframe apps
+    // link the stylesheet relatively (e.g. "../../../../style.css"),
+    // which never starts with "style.css".
     let [originalCSS, userCSS, styleEl] = await Promise.all([
-      loadText("style.css?original"),
-      isSWControlled ? loadText("style.css") : undefined,
+      loadText("/style.css?original"),
+      isSWControlled ? loadText("/style.css") : undefined,
       /** @type {HTMLLinkElement} */ (
-        /** @type {unknown} */ (untilConnected(`link[href^='style.css']`))
+        /** @type {unknown} */ (untilConnected(`link[href$='style.css']`))
       ),
     ])
 
