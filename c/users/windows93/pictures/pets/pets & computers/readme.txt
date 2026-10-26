@@ -1,0 +1,1 @@
+These images are presented as historical documents, not as practices to be emulated today. Animals are sentient beings, not objects: please treat them with respect and care.
