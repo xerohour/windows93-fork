@@ -501,7 +501,7 @@
       if (msg.trim() == '/speech' || msg.trim() == '/s') {
         speaking = !speaking;
         if (tts === undefined) {
-          import("/c/libs/espeakng/1.49/Speak.js")
+          import("../../../libs/espeakng/1.49/Speak.js")
             .then(async ({ Speak }) => {
               const speak = new Speak()
               await speak.getVoices()

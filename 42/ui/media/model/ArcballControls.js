@@ -19,7 +19,7 @@ import {
   Vector3,
   Matrix4,
   MathUtils,
-} from "/c/libs/threejs/0.181/three.js"
+} from "../../../../c/libs/threejs/0.181/three.js"
 
 //trackball state
 const STATE = {

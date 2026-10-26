@@ -807,10 +807,10 @@
             return match ? match[1].trim() : "";
         }
 
-        import { App } from "/42/api/os/App.js"
+        import { App } from "../../../../42/api/os/App.js"
         const app = new App()
         let img = new Image();
-        img.src = '/c/users/windows93/interface/icons/16x16/broken.png';
+        img.src = '../../../../c/users/windows93/interface/icons/16x16/broken.png';
         app
             .on("decode", async (fileAgent) => {
                 if (fileAgent.path.trim().toLowerCase().endsWith(".html")) {
@@ -828,7 +828,7 @@
                         await img.decode()
                         document.getElementById('img').innerText = img.src.split('/').pop();
                     } catch {
-                        img.src = '/c/users/windows93/interface/icons/16x16/broken.png';
+                        img.src = '../../../../c/users/windows93/interface/icons/16x16/broken.png';
                     }
                 }
             })
@@ -888,7 +888,7 @@
         const observer = new MutationObserver(updateSceneSize);
         observer.observe(document.getElementById("container"), { childList: true, subtree: true });
 
-        import { embedCSS } from "/42/lib/graphic/screenshot.js"
+        import { embedCSS } from "../../../../42/lib/graphic/screenshot.js"
 
         async function getAllCSSRules() {
             setLastMode('magnifier');

@@ -8,6 +8,7 @@ import {
   strFromU8,
 } from "../../../../c/libs/threejs/0.181/addons/libs/fflate.module.js"
 import { defer } from "../../type/promise/defer.js"
+import { ensureURL } from "../../../api/os/ensureURL.js"
 
 const LoaderUtils = {
   createFilesMap(files) {
@@ -85,10 +86,14 @@ async function createGLTFLoader(manager) {
   )
 
   const dracoLoader = new DRACOLoader()
-  dracoLoader.setDecoderPath("/c/libs/threejs/0.181/addons/libs/draco/gltf/")
+  dracoLoader.setDecoderPath(
+    await ensureURL("/c/libs/threejs/0.181/addons/libs/draco/gltf/"),
+  )
 
   const ktx2Loader = new KTX2Loader(manager)
-  ktx2Loader.setTranscoderPath("/c/libs/threejs/0.181/addons/libs/basis/")
+  ktx2Loader.setTranscoderPath(
+    await ensureURL("/c/libs/threejs/0.181/addons/libs/basis/"),
+  )
 
   // deferred.signals.rendererDetectKTX2Support.dispatch(ktx2Loader)
 
@@ -181,7 +186,9 @@ function Loader() {
             )
 
             const loader = new Rhino3dmLoader()
-            loader.setLibraryPath("/c/libs/threejs/0.181/addons/libs/rhino3dm/")
+            loader.setLibraryPath(
+              await ensureURL("/c/libs/threejs/0.181/addons/libs/rhino3dm/"),
+            )
             loader.parse(
               contents,
               (object) => {
@@ -296,7 +303,9 @@ function Loader() {
             )
 
             const loader = new DRACOLoader()
-            loader.setDecoderPath("/c/libs/threejs/0.181/addons/libs/draco/")
+            loader.setDecoderPath(
+              await ensureURL("/c/libs/threejs/0.181/addons/libs/draco/"),
+            )
             loader.parse(contents, (geometry) => {
               let object
 

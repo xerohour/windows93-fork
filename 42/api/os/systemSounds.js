@@ -3,6 +3,7 @@ import { MediaNode } from "../../lib/audio/generator/MediaNode.js"
 import { mixer } from "../../lib/audio/mixer.js"
 import { RecyclePool } from "../../lib/structure/Pool.js"
 import { cssVar } from "../../lib/cssom/cssVar.js"
+import { ensureURL } from "./ensureURL.js"
 
 const pool = new RecyclePool(
   () => {
@@ -37,6 +38,14 @@ export async function playSystemSound(registryName) {
   try {
     src = decodeURIComponent(src)
   } catch {}
+
+  // 2026-10-26, silent system sounds on GitHub Pages: CSS sound values
+  // are root-absolute virtual paths like "/c/users/.../BOOT.ogg", and
+  // assigning them straight to an audio element resolves to the domain
+  // root and 404s. Rewrite root-absolute paths through ensureURL only.
+  if (src.startsWith("/")) {
+    src = await ensureURL(src).catch(() => src)
+  }
 
   return playSound(src)
 }
@@ -126,7 +135,9 @@ export function systemSounds(options) {
 
     if (e.target.sound) {
       const node = pool.get()
-      node.src = e.target.sound
+      node.src = e.target.sound.startsWith("/")
+        ? await ensureURL(e.target.sound).catch(() => e.target.sound)
+        : e.target.sound
       node.play()
     } else if (
       e.target.icon === "error" ||
