@@ -18,6 +18,7 @@ import {
   resetCursorPolyfill,
 } from "../../gui/applyCursorPolyfill.js"
 import { loadText } from "../../load/loadText.js"
+import { inDesktopRealm } from "../../env/realm/inDesktopRealm.js"
 import { ConfigFile } from "../ConfigFile.js"
 import { pixelFontFix } from "./themesManager/pixelFontFix.js"
 import {
@@ -288,11 +289,28 @@ ${this.manager.suffix}`
 
 class ThemesManager extends ConfigFile {
   async setup() {
+    // 2026-10-26, PowerNOOB style.css 404 on GitHub Pages, iframe-only
+    // fix: ThemesManager runs in every realm that imports os.js. In an
+    // iframe app, a relative "style.css" resolves against the app's own
+    // folder (e.g. /c/programs/editors/PowerNOOB/style.css, which does
+    // not exist) instead of the site root, so PowerNOOB opened with a
+    // 404 HTTPError dialog. In the desktop realm the relative path is
+    // correct and the boot waits on themesManager.ready, so the desktop
+    // path is left exactly as it was — a blanket change here coincided
+    // with two boots hanging on the boot screen, and that risk is not
+    // taken again. Only non-desktop realms fetch the site-root path
+    // (root-absolute, through ensureURL, which rewrites it to the Pages
+    // subpath) and match the theme link by containment, since iframe
+    // apps link it relatively ("../../../../style.css").
+    const stylePath = inDesktopRealm ? "style.css" : "/style.css"
+    const styleSelector = inDesktopRealm
+      ? `link[href^='style.css']`
+      : `link[href*='style.css']`
     let [originalCSS, userCSS, styleEl] = await Promise.all([
-      loadText("style.css?original"),
-      isSWControlled ? loadText("style.css") : undefined,
+      loadText(`${stylePath}?original`),
+      isSWControlled ? loadText(stylePath) : undefined,
       /** @type {HTMLLinkElement} */ (
-        /** @type {unknown} */ (untilConnected(`link[href^='style.css']`))
+        /** @type {unknown} */ (untilConnected(styleSelector))
       ),
     ])
 
