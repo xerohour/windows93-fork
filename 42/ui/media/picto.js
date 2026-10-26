@@ -1,4 +1,5 @@
 import { Component } from "../../api/gui/Component.js"
+import { ensureURL } from "../../api/os/ensureURL.js"
 import { TRANSPARENT } from "../../lib/constant/TRANSPARENT.js"
 import { isURLImage } from "../../lib/syntax/url/isURLImage.js"
 import { isPromiseLike } from "../../lib/type/any/isPromiseLike.js"
@@ -112,7 +113,18 @@ export class PictoComponent extends Component {
     }
 
     if (this.value.startsWith("blob:") || isURLImage(this.value)) {
-      this.img.src = this.value
+      // 2026-10-26, broken Start menu app icons on GitHub Pages: menu
+      // pictos are raw manifest icon paths like
+      // "/c/programs/editors/CodeMirror/icon-16.png", and this branch used
+      // to assign them straight to img.src, bypassing ensureURL. On Pages
+      // that resolves to the domain root and 404s, showing the
+      // broken-image placeholder for every app in the menu. Rewrite only
+      // root-absolute paths through ensureURL (which converts a virtual
+      // site path to the Pages subpath, idempotently); blob, data, http,
+      // and relative paths are left exactly as before.
+      this.img.src = this.value.startsWith("/")
+        ? await ensureURL(this.value).catch(() => this.value)
+        : this.value
     } else {
       const { value, signal } = this
       iconsManager ??= (await import("../../api/os/managers/iconsManager.js"))

@@ -17,6 +17,7 @@ import { isErrorLike } from "../../lib/type/any/isErrorLike.js"
 import { normalizeError } from "../../lib/type/error/normalizeError.js"
 import { saveStyles, setTemp } from "../../lib/type/element/setTemp.js"
 import { isURLImage } from "../../lib/syntax/url/isURLImage.js"
+import { ensureURL } from "../../api/os/ensureURL.js"
 import { animateTo } from "../../lib/type/element/animate.js"
 import { isHashmapLike } from "../../lib/type/any/isHashmapLike.js"
 import { untilIframeEditable } from "../../lib/timing/untilIframeEditable.js"
@@ -2333,7 +2334,12 @@ export async function demand(options) {
 
   if (src) {
     const img = new Image()
-    img.src = src
+    // 2026-10-26, same Pages root-absolute bug as ui-picto: a raw
+    // "/c/..." image path assigned straight to img.src resolves to the
+    // domain root and 404s on Pages. Rewrite root-absolute paths only.
+    img.src = src.startsWith("/")
+      ? await ensureURL(src).catch(() => src)
+      : src
     img.draggable = false
     img.fetchPriority = "high"
     img.style.userSelect = "none"
