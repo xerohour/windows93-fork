@@ -1,0 +1,2 @@
+/*! { author: "SthephanShi", name: "Arabic beat" } */
+t%((t&-16|t>>10)&42)*4|t>>4

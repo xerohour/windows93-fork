@@ -1,0 +1,2 @@
+/*! { author: "SthephanShi", name: "Funny voice calling", remix: "SthephanShi/Toy phone" } */
+t*((t>>10|t%16*t>>5)&8*t>>12&18)

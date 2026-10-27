@@ -1,0 +1,2 @@
+/*! { author: "SthephanShi", name: "Explosions" } */
+(t>>2)*(t>>5)|t>>5
