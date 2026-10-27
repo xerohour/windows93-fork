@@ -96,9 +96,16 @@ function autosave() {
 }
 
 // NETWORK
+// Pages has no socket.io server, so the bundled client will keep polling
+// a host that never answers. Keep `socket` null until a real connection
+// happens, so single-player localStorage save/load still works offline.
+// (Previously, merely defining `io` made `socket` truthy and disabled local
+// save/load even though no server ever connected.)
+var socket = null
 if ("io" in window) {
-  var socket = io()
-  socket.on("update voxel", function ([x, y, z, color, removed]) {
+  var _socket = io()
+  _socket.on("connect", function () { socket = _socket })
+  _socket.on("update voxel", function ([x, y, z, color, removed]) {
     new Voxel(x, y, z, color)
     if (removed) {
       for (const voxel of voxels) {
@@ -114,7 +121,7 @@ if ("io" in window) {
     }
   })
 
-  socket.on("remove voxel", function ([x, y, z]) {
+  _socket.on("remove voxel", function ([x, y, z]) {
     for (const voxel of voxels) {
       if (x === voxel.x && y === voxel.y && z === voxel.z) {
         voxel.destroy()
@@ -123,7 +130,7 @@ if ("io" in window) {
     }
   })
 
-  socket.on("scene", function (data) {
+  _socket.on("scene", function (data) {
     clearVoxels()
     loadVoxels(data.voxels)
   })
